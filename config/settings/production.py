@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'oauth2.apps.Oauth2Config',
     'oidc_provider',
+    'rest_framework',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +127,13 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/accounts/login/'
 
 OIDC_USERINFO = 'oauth2.oidc_provider_settings.userinfo'
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication'
+    ),
+}
